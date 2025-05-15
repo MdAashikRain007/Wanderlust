@@ -1,54 +1,121 @@
-
 <style>
-  .btn-search{
+  .btn-search {
     background-color: #fe424d;
     color: white;
     border-radius: 25px;
-    padding: 0 1rem 0 1rem;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    transition: background-color 0.3s;
   }
-  .btn-searc:hover{
-    background-color: #fe424d !important;
+
+  .btn-search:hover {
+    background-color: #e03d44 !important;
     color: white !important;
   }
-  .btn-search i{
-    display: inline;
-    margin-right: 0.5rem;
+
+  .btn-search i {
+    margin-right: 0.3rem;
   }
-  .search-input{
+
+  /* Search input sizing */
+  .search-input {
     border-radius: 25px;
-    padding: 0.5rem 3rem 0.5rem 3rem;
-    font-size: 1rem;
+    font-size: 0.875rem;
+    padding: 0.25rem 0.75rem;
+    width: 160px;
+    transition: width 0.3s ease;
+  }
+
+  @media (max-width: 576px) {
+    .search-input {
+      width: 120px;
+      font-size: 0.75rem;
+      padding: 0.5rem 0.5rem;
+      width: 12rem;
+    }
+
+    .btn-search {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.6rem;
+    }
+
+    .nav-link {
+      padding: 0.25rem 0;
+      font-size: 0.85rem;
+    }
+
+    .navbar-brand {
+      font-size: 1rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .search-input {
+      width: 280px;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+    }
+
+    .btn-search {
+      font-size: 1rem;
+      padding: 0.5rem 1.25rem;
+    }
+  }
+
+  /* Nav links column on small, row on md+ */
+  #navCollapse .navbar-nav {
+    flex-direction: column;
+     background-color: #f8f9fa;  /* light gray background on small devices */
+    padding: 1rem;
+    border-radius: 0.375rem;
+
+    gap: 0.5rem;
+  }
+
+  @media (min-width: 768px) {
+    #navCollapse .navbar-nav {
+      flex-direction: row;
+      gap: 1rem;
+    }
   }
 </style>
 
+<nav class="navbar navbar-expand-md bg-body-tertiary border-bottom sticky-top px-2">
+  <div class="container-fluid d-flex flex-wrap align-items-center justify-content-between gap-2">
 
-<nav class="navbar navbar-expand-md bg-body-tertiary border-bottom sticky-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass"></i></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- Logo -->
+    <a class="navbar-brand me-2" href="/listings"><i class="fa-solid fa-compass"></i></a>
+
+    <!-- Search bar - always visible -->
+    <form action="/listings" class="d-flex align-items-center flex-shrink-1" >
+      <input class="form-control search-input me-2" type="search"  placeholder="Search" name="category" />
+      <button class="btn btn-search" type="submit">
+        <i class="fa-solid fa-magnifying-glass"></i>Search
+      </button>
+    </form>
+
+    <!-- Hamburger toggler for nav links only -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navCollapse"
+      aria-controls="navCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link" href="/listings">Explore</a>
-      </div>
-      <div class="navbar-nav ms-auto">
-        <form class="d-flex" role="search">
-          <input class="form-control me-2 search-input" type="search" placeholder="Search Destination" >
-          <button class="btn btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search </button>
-        </form>
-      </div>
-      <div class="navbar-nav ms-auto">
+
+    <!-- Nav links & auth buttons -->
+    <div class="collapse navbar-collapse flex-grow-0" id="navCollapse">
+      <div class="navbar-nav d-flex align-items-center justify-content-center ">
         <a class="nav-link" href="/listings/new">Airbnb your home</a>
-        <% if(!currUser){%>
-          <a class="nav-link btn btn-primary btn-sm bg-primary text-white mx-2" href="/signup">Sign Up</a>
-          <a class="nav-link btn btn-primary btn-sm bg-primary text-white mx-2" href="/login">Log In</a>
-          <%} %>
-            <% if(currUser){%>
-              <a class="nav-link btn btn-danger btn-sm bg-danger text-white mx-2 " href="/logout">Log Out</a>
-              <%} %>
+
+        <% if (!currUser) { %>
+          <a class="btn btn-primary btn-sm text-white ms-md-3" href="/signup">Sign Up</a>
+          <a class="btn btn-primary btn-sm text-white ms-2" href="/login">Log In</a>
+        <% } %>
+
+        <% if (currUser) { %>
+          <a class="btn btn-danger btn-sm text-white ms-md-3" href="/logout">Log Out</a>
+        <% } %>
       </div>
     </div>
+
   </div>
 </nav>

@@ -37,5 +37,7 @@ router.route("/:id")
  // Edit Route
  
  router.get("/:id/edit",isLoggedIn,isOwer,wrapAsync(listingController.renderEditForm));
+
+ router.get("/",listingController.searchListing);
  
  module.exports =router;

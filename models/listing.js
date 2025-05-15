@@ -13,6 +13,11 @@ const listingSchema = new Schema({
         url: String,
         filename: String,
     },
+    category: {
+        type: String,
+        required: true,
+        enum: ["Beach", "Mountain", "City", "Village", "Desert", "Forest", "Lake","Artic","Other"]
+    },
     price: Number,
     location: String,
     country: String,
