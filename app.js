@@ -91,8 +91,8 @@ async function main() {
     await mongoose.connect(dbURL);
   }
 
-
-  app.use("/listings",listingsRouter);
+ 
+ app.use("/listings",listingsRouter);
   app.use("/listings/:id/reviews",reviewsRouter);
   app.use("/",userRouter);
 

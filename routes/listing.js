@@ -40,4 +40,5 @@ router.route("/:id")
 
  router.get("/",listingController.searchListing);
  
+ 
  module.exports =router;

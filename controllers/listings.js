@@ -91,5 +91,5 @@ module.exports.searchListing=async (req, res) => {
     }
 
     // ✅ Make sure to pass `category` to the template
-    res.render("./listings/index.ejs", { allListings, category });
+    res.render(`./listings/index.ejs`, { allListings, category });
 };
