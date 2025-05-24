@@ -9,9 +9,16 @@ const {storage}=require("../cloudConfig.js");
 const upload = multer({ storage});
 
 const listingController= require("../controllers/listings.js");
+
+
+//searching functionality 
+
+
  
+  router.get("/search",listingController.searchListing);
 
 //compact way of write route index and Create
+
 
 router.route("/")
 .get(wrapAsync(listingController.index))
@@ -38,7 +45,7 @@ router.route("/:id")
  
  router.get("/:id/edit",isLoggedIn,isOwer,wrapAsync(listingController.renderEditForm));
 
- router.get("/",listingController.searchListing);
- 
+
+  
  
  module.exports =router;

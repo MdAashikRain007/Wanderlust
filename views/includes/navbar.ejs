@@ -88,8 +88,8 @@
     <a class="navbar-brand me-2" href="/listings"><i class="fa-solid fa-compass"></i></a>
 
     <!-- Search bar - always visible -->
-    <form action="/listings" class="d-flex align-items-center flex-shrink-1" >
-      <input class="form-control search-input me-2" type="search"  placeholder="Search" name="category" />
+    <form  method="GET" action="/listings/search" class="d-flex align-items-center flex-shrink-1" >
+      <input class="form-control search-input me-2" type="search"  placeholder="Search Category.." name="category" />
       <button class="btn btn-search" type="submit">
         <i class="fa-solid fa-magnifying-glass"></i>Search
       </button>

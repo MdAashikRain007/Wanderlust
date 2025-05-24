@@ -2,8 +2,16 @@ const Listing = require("../models/listing.js");
 
 //Index Route
 module.exports.index = async (req, res) => {
-    const allListings = await Listing.find({});
-    res.render("./listings/index.ejs", { allListings });
+      const { category } = req.query;
+    let listings;
+
+    if (category) {
+        listings = await Listing.find({ category });
+    } else {
+        listings = await Listing.find({});
+    }
+
+    res.render("listings/index", {listings, category });
 };
 
 // New Route
@@ -80,16 +88,15 @@ module.exports.destroyListing = async (req, res) => {
     res.redirect("/listings")
 };
 
-module.exports.searchListing=async (req, res) => {
-   const category = req.query.category;
-    let allListings;
+module.exports.searchListing = async (req, res) => {
+  const { category } = req.query;
 
-    if (category) {
-        allListings = await Listing.find({ category: category });
-    } else {
-        allListings = await Listing.find({});
-    }
+  let filter = {};
+  if (category && category.trim() !== "") {
+    // Case-insensitive search for category
+    filter.category = { $regex: category, $options: "i" };
+  }
 
-    // ✅ Make sure to pass `category` to the template
-    res.render(`./listings/index.ejs`, { allListings, category });
+  const listings = await Listing.find(filter);
+  res.render("listings/index", { listings });
 };
