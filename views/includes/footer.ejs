@@ -1,14 +1,123 @@
-<footer>
-    <div class="f-info">
-        <div class="f-info-social">
-            <i class="fa-brands fa-square-facebook"></i>
-            <i class="fa-brands fa-square-instagram"></i>
-            <i class="fa-brands fa-linkedin"></i>
-        </div>
-        <div class="f-info-brand"> &copy; Wanderlust Private Limited</div>
-        <div class="f-info-links">
-            <a href="privacy">Privacy</a>
-            <a href="terms">Terms</a>
+<style>
+    footer {
+        background-color: #e7e2e2;
+        /* Dark background matching your original style */
+        color: rgb(15, 14, 14);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    footer h5 {
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: black;
+        /* Your accent color */
+    }
+
+    footer a {
+        color: black;
+        transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+        color: black;
+        text-decoration: underline;
+    }
+
+    footer .f-info-social a {
+        font-size: 1.5rem;
+    }
+
+    footer .btn-danger {
+        background-color: red;
+        border: none;
+        transition: background-color 0.3s ease;
+    }
+
+    footer input.form-control {
+        border-radius: 25px;
+    }
+
+    footer form.d-flex {
+        gap: 0.5rem;
+    }
+
+    @media (max-width: 575px) {
+        footer .f-info-social {
+            justify-content: center;
+        }
+
+        footer form.d-flex {
+            flex-direction: column;
+        }
+
+        footer form.d-flex input,
+        footer form.d-flex button {
+            width: 100%;
+        }
+    }
+</style>
+<footer class="bg-body-tertiary text-dark py-4">
+    <div class="container">
+        <div class="row gy-4">
+
+            <!-- Social Media -->
+            <div class="col-12 col-md-4 d-flex flex-column align-items-center align-items-md-start">
+                <h5 class="mb-3">Follow Us</h5>
+                <div class="f-info-social mb-2">
+                    <a href="#" class="text-dark me-3" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook fa-lg"></i>
+                    </a>
+                    <a href="#" class="text-dark me-3" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram fa-lg"></i>
+                    </a>
+                    <a href="#" class="text-dark me-3" aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin fa-lg"></i>
+                    </a>
+                    <a href="#" class="text-dark" aria-label="Twitter">
+                        <i class="fa-brands fa-twitter fa-lg"></i>
+                    </a>
+                </div>
+                <small class="f-info-brand">&copy; Wanderlust Private Limited</small>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-6 col-md-2">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="/listings" class="text-dark text-decoration-none">Home</a></li>
+                    <li><a href="/listings" class="text-dark text-decoration-none">Listings</a></li>
+                    <li><a href="#" class="text-dark text-decoration-none">Help</a></li>
+
+                </ul>
+            </div>
+
+            <!-- Support Links -->
+            <div class="col-6 col-md-3">
+                <h5>Support</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-dark text-decoration-none">Privacy Policy</a></li>
+                    <li><a href="#" class="text-dark text-decoration-none">Terms of Service</a></li>
+                    <li><a href="#" class="text-dark text-decoration-none">FAQ</a></li>
+                    <li><a href="#" class="text-dark text-decoration-none">Help Center</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="col-12 col-md-3 ">
+                <h5>Newsletter</h5>
+                <p>Subscribe to get our latest updates and offers.</p>
+                <div class="d-flex justify-content-center align-items-center gap-2 mt-3 mt-sm-0">
+                    <% if (!currUser) { %>
+                        <a href="/signup" class="btn btn-primary text-decoration-none">SignUp</a>
+                        <a href="/login" class="btn btn-primary text-decoration-none">Login</a>
+                        <% } %>
+                            <% if (currUser) { %>
+                                <a class="btn btn-danger btn-sm text-white ms-md-3 py-2 px-2 text-decoration-none" href="/logout">LogOut</a>
+                                <% } %>
+                </div>
+
+            </div>
+
         </div>
     </div>
 </footer>
