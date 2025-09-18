@@ -10,11 +10,6 @@
 - [Tech Stack](#tech-stack)  
 - [Project Structure](#project-structure)  
 - [Installation](#installation)  
-- [Usage](#usage)  
-- [Environment Variables](#environment-variables)  
-- [Contributing](#contributing)  
-- [License](#license)  
-- [Contact](#contact)
 
 ---
 
@@ -40,10 +35,6 @@
 - **Middleware**: Custom middleware for validating requests etc.  
 
 ---
-
-## Project Structure
-
-Here’s how the code is organized:
 
 ## Installation
 
@@ -86,6 +77,6 @@ So devs know how to run, lint, or test your project:
 - `npm run lint` → Lint the code  
 - `npm test` → Run tests  
 
-
+```
 
 
