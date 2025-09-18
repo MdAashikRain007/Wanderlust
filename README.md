@@ -1,14 +1,16 @@
 # Wanderlust
 
-> Wanderlust is a full-stack web application to share travel experiences — create posts with photos, explore others’ journeys, and build a travel community.
-
+> Built a full-featured responsive web application for users to discover and share
+travel destinations, following the MVC architecture for clean code organization.
+Implemented server-side rendering using EJS templates, and styled with custom
+CSS and HTML for a responsive user experience. The backend uses Express.js and
+MongoDB for efficient data handling and storage.
 ---
 
 ## Table of Contents
 
 - [Features](#features)  
 - [Tech Stack](#tech-stack)  
-- [Project Structure](#project-structure)  
 - [Installation](#installation)  
 
 ---
