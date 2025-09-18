@@ -45,3 +45,6 @@
 
 Here’s how the code is organized:
 
+npm install
+
+
