@@ -45,6 +45,9 @@ git clone https://github.com/your-username/your-project.git
 cd your-project
 npm install
 ```
+```bash
+npm run dev
+```
 
 This tells the user that running `npm install` will fetch all dependencies listed in `package.json`.
 
@@ -66,17 +69,5 @@ This project uses the following main packages:
 ```
 ---
 
-## 3. **Add `npm scripts` in README**
-So devs know how to run, lint, or test your project:
-
-```markdown
-## Available Scripts
-
-- `npm start` → Run in production mode  
-- `npm run dev` → Run with nodemon (development mode)  
-- `npm run lint` → Lint the code  
-- `npm test` → Run tests  
-
-```
 
 
