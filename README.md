@@ -1,5 +1,8 @@
 # Wanderlust
 
+🔗 **Live Project**:  
+👉 https://wanderlust-five-brown.vercel.app/listings
+
 > Built a full-featured responsive web application for users to discover and share
 travel destinations, following the MVC architecture for clean code organization.
 Implemented server-side rendering using EJS templates, and styled with custom
